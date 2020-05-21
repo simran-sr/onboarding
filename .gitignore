@@ -1,0 +1,10 @@
+#[ VIRTUAL ENVIRONMENT ]
+venv
+
+#[media files]
+media/
+
+#[pycache file]
+.pyc 
+*.idea
+*__pycache__*
