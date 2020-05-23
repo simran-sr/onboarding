@@ -15,7 +15,7 @@ import os
 from split_settings.tools import include
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 FILES_DIR = os.path.join(BASE_DIR, 'files')
 
@@ -91,7 +91,7 @@ WSGI_APPLICATION = 'onboarding.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, '../db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'onboarding.sqlite3'),
     }
 }
 

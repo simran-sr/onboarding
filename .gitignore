@@ -4,6 +4,9 @@ venv
 #[media files]
 media/
 
+#[migration files]
+migrations/
+
 #[pycache file]
 .pyc 
 *.idea
