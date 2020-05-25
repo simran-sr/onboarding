@@ -6,7 +6,7 @@ media/
 
 #[migration files]
 # migrations/
-
+onboarding.sqlite3
 .vscode
 
 #[pycache file]

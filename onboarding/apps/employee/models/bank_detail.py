@@ -2,9 +2,9 @@ from django.db import models
 from onboarding.apps.employee.models.employee import ModelEmployee
 
 # ---------------------------------------------------------------------------
-# ModelBankingInfomation
+# ModelBankingDetail
 # ---------------------------------------------------------------------------
-class ModelBankingInfomation(models.Model):
+class ModelBankingDetail(models.Model):
     bank_name = models.CharField(
         max_length=255
     )

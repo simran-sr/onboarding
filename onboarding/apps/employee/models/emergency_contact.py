@@ -11,7 +11,7 @@ class ModelEmergencyContact(models.Model):
     )
     father_contact = models.IntegerField()
     frient_contact = models.IntegerField()
-    gmail = models.EmailField(
+    email = models.EmailField(
         max_length=50
     )
 
