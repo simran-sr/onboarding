@@ -5,7 +5,7 @@ from onboarding.apps.employee.models.documents import ModelDocumentGathering
 # FormDocumentGathering
 # -------------------------------------------------------------------------------
 
-class FormDocumentGathering(models.Model):
+class FormDocumentGathering(forms.ModelForm):
     files = forms.FileField(
         required=False,
         label='Files',

@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from onboarding.apps.employee.models.employee import ModelEmployee
 from django.contrib.auth import authenticate, login
 
+
 # Create your views here.
 class ViewAutoLoginOnboard(LoginView):
 	
@@ -17,6 +18,7 @@ class ViewAutoLoginOnboard(LoginView):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
+			ModelEmployee.objects.filter(uuid=id).update(slug = "welcome")
 			return render(request, "employee/welcome.html")
 		else:
 			return HttpResponse("wrong credentials..")

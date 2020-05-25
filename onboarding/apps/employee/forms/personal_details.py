@@ -10,7 +10,7 @@ GENDER_CHOICES = (
 # -------------------------------------------------------------------------------
 # FormPersonalDetails
 # -------------------------------------------------------------------------------
-class FormPersonalDetails(models.Model):
+class FormPersonalDetails(forms.ModelForm):
 	age = forms.CharField(
         max_length=100, required=True,
         label='Age',
