@@ -5,7 +5,7 @@ from onboarding.apps.employee.models.emergency_contact import ModelEmergencyCont
 # -------------------------------------------------------------------------------
 # FormEmergencyContact
 # -------------------------------------------------------------------------------
-class FormEmergencyContact(models.Model):
+class FormEmergencyContact(forms.ModelForm):
     father_contact = forms.CharField(
         max_length=100, required=True,
         label='Father Contact',

@@ -5,7 +5,7 @@ from onboarding.apps.employee.models.family_details import ModelFamilyDetails
 # -------------------------------------------------------------------------------
 # FormFamilyDetails
 # -------------------------------------------------------------------------------
-class FormFamilyDetails(models.Model):
+class FormFamilyDetails(forms.ModelForm):
 	father_name = forms.CharField(
         max_length=100, required=True,
         label='Father Name',
