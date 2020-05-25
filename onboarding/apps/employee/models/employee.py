@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 
 
 # -------------------------------------------------------------------------------
-# ModelDocumentGathering
+# ModelEmployee
 # -------------------------------------------------------------------------------
 class ModelEmployee(models.Model):
 	uuid = models.UUIDField(
