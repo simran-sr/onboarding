@@ -3,7 +3,7 @@
 {% block title %}Welcome{% endblock %}
 
 {% block content %}
-	<h2>Welcome {{ request.user }}! On-Board</h2>
-	<a href="{% url 'employee:roles-and-responsiblity' %}">Next</a><br>
+	<h2>Roles and responsibility</h2>
+
 	<a href="{% url 'employee:logout' %}">Logout</a>
 {% endblock %}

@@ -7,9 +7,6 @@ from django.contrib.auth import authenticate, login
 
 # Create your views here.
 class ViewAutoLoginOnboard(LoginView):
-	def __init__(self):
-		print("selff...")
-		self.greeting = "Good Day"
 	
 	def get(self, request, id):
 		print(self.kwargs['id'])
@@ -18,7 +15,6 @@ class ViewAutoLoginOnboard(LoginView):
 		username = employee.user.username
 		password = 'admin@123'
 		user = authenticate(request, username=username, password=password)
-		print("uuuuuuuu", user)
 		if user is not None:
 			login(request, user)
 			return render(request, "employee/welcome.html")
