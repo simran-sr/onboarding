@@ -7,8 +7,6 @@ from onboarding.apps.employee.models.documents import ModelDocumentGathering
 from onboarding.apps.employee.models.bank_detail import ModelBankingDetail
 
 
-
-
 admin.site.register(ModelEmployee)
 admin.site.register(ModelPersonalDetails)
 admin.site.register(ModelFamilyDetails)

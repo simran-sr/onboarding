@@ -35,7 +35,7 @@ class FormPersonalDetails(models.Model):
             })
     )
 
-	dob = models.DateField()
+	dob = forms.DateField()
 
 	contact = forms.CharField(
         max_length=100, required=True,
