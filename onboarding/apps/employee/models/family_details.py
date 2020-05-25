@@ -1,38 +1,33 @@
 from django.db import models
-from uuid import uuid4
-from django.contrib.auth.models import User
 
 
 # -------------------------------------------------------------------------------
 # ModelDocumentGathering
 # -------------------------------------------------------------------------------
-class ModelEmployee(models.Model):
-	uuid = models.UUIDField(
-		unique=True,
-		default=uuid4,
-		editable=False,
-		help_text="Unique identification for an account."
+class ModelFamilyDetails(models.Model):
+	employee = models.OneToOneField(
+		'ModelEmployee',
+		on_delete=models.CASCADE
 	)
-	user = models.OneToOneField(
-        User,
-        on_delete=models.CASCADE
+	father_name = models.CharField(
+        max_length=255
     )
-	slug = models.CharField(
-		max_length=255,
-		default = 'onboard'
-	)
+	mother_name = models.CharField(
+        max_length=255
+    )
+	siblings = models.IntegerField()
 
 	# ---------------------------------------------------------------------------
 	# Meta
 	# ---------------------------------------------------------------------------
 	class Meta:
-		db_table = 'employee'
-		verbose_name = 'Employee'
-		verbose_name_plural = 'Employees'
+		db_table = 'family_detail'
+		verbose_name = 'Family Details'
+		verbose_name_plural = 'Family Details'
 		managed = True
 
 	# ---------------------------------------------------------------------------
 	# __str__
 	# ---------------------------------------------------------------------------
 	def __str__(self):
-		return self.slug
+		return self.father_name
