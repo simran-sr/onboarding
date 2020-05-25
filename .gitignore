@@ -5,7 +5,9 @@ venv
 media/
 
 #[migration files]
-migrations/
+# migrations/
+
+.vscode
 
 #[pycache file]
 .pyc 
