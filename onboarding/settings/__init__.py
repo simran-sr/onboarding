@@ -52,6 +52,9 @@ INSTALLED_APPS = [
 
     #apps
     'onboarding.apps.employee',
+    'onboarding.apps.base',
+    'onboarding.apps.account',
+    'onboarding.apps.site',
 ]
 
 MIDDLEWARE = [

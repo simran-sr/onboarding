@@ -10,8 +10,6 @@ from django.contrib.auth import authenticate, login
 class ViewAutoLoginOnboard(LoginView):
 	
 	def get(self, request, id):
-		print(self.kwargs['id'])
-		id = self.kwargs['id']
 		employee = ModelEmployee.objects.get(uuid=id)
 		username = employee.user.username
 		password = 'admin@123'
@@ -19,6 +17,6 @@ class ViewAutoLoginOnboard(LoginView):
 		if user is not None:
 			login(request, user)
 			ModelEmployee.objects.filter(uuid=id).update(slug = "welcome")
-			return render(request, "employee/welcome.html")
+			return render(request, "employee/welcome.html", {'uuid':id})
 		else:
 			return HttpResponse("wrong credentials..")

@@ -20,7 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',
         include(
-             ('onboarding.apps.employee.urls', 'employee'), 
+             ('onboarding.apps.site.urls', 'employee'),
              namespace='employee'
         )
     ),

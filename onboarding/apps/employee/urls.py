@@ -10,44 +10,49 @@ from onboarding.apps.employee.views.drug_declaration import ViewDrugDeclaration
 from onboarding.apps.employee.views.banking_info import ViewBankingInfo
 
 urlpatterns = [
-    
-    path('onboard-login/<uuid:id>', 
-         ViewAutoLoginOnboard.as_view(), 
+
+    path('',
+         ViewHome.as_view(),
+         name='home'
+         ),
+
+    path('onboarding-login/<uuid:id>',
+         ViewAutoLoginOnboard.as_view(),
          name='login'
     ),
 
-    path('', 
-         ViewHome.as_view(), 
-         name='home'
-    ),
-    path('roles-and-responsiblity',
-    	ViewRolesResponsibility.as_view(),
-    	name='roles-and-responsiblity'
-    ),
-    path('personal-info',
-    	ViewPersonalInfo.as_view(),
-    	name='personal-info'
-    ),
-    path('family-info',
-    	ViewFamilyInfo.as_view(),
-    	name='family-info'
-    ),
-    path('document-info',
-    	ViewDocumentInfo.as_view(),
-    	name='document-info'
-    ),
-    path('drug-declaration',
-    	ViewDrugDeclaration.as_view(),
-    	name='drug-declaration'
-    ),
-    path('banking-info',
-    	ViewBankingInfo.as_view(),
-    	name='banking-info'
-    ),
     path('logout',
-    	ViewLogout.as_view(),
-    	name='logout'
+         ViewLogout.as_view(),
+         name='logout'
+         ),
+
+    path('onboarding-roles-and-responsiblity',
+    	ViewRolesResponsibility.as_view(),
+    	name='onboarding-roles-and-responsiblity'
     ),
 
+    path('onboarding-personal-info/<uuid:id>',
+    	ViewPersonalInfo.as_view(),
+    	name='onboarding-personal-info'
+    ),
 
+    path('onboarding-family-info/<uuid:id>',
+    	ViewFamilyInfo.as_view(),
+    	name='onboarding-family-info'
+    ),
+
+    path('onboarding-document-info/<uuid:id>',
+    	ViewDocumentInfo.as_view(),
+    	name='onboarding-document-info'
+    ),
+
+    path('onboarding-drug-declaration/<uuid:id>',
+    	ViewDrugDeclaration.as_view(),
+    	name='onboarding-drug-declaration'
+    ),
+
+    path('onboarding-banking-info/<uuid:id>',
+    	ViewBankingInfo.as_view(),
+    	name='onboarding-banking-info'
+    )
 ]

@@ -4,6 +4,7 @@
 
 {% block content %}
 	<h2>Welcome {{ request.user }}! On-Board</h2>
+{{uuid}}
 	<a href="{% url 'employee:roles-and-responsiblity' %}">Next</a><br>
 	<a href="{% url 'employee:logout' %}">Logout</a>
 {% endblock %}
