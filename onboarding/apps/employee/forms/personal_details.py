@@ -1,4 +1,5 @@
-from django.db import models
+from django import forms
+from onboarding.apps.employee.models.personal_details import ModelPersonalDetails
 
 GENDER_CHOICES = (
     (0, 'male'),
@@ -61,6 +62,6 @@ class FormPersonalDetails(forms.ModelForm):
 	# Meta
 	# ---------------------------------------------------------------------------
 	class Meta:
-		class Meta:
-			model = ModelEmergencyContact
-			fields = {'age', 'gender', 'address','dob', 'contact', 'post_code')
+
+		model = ModelPersonalDetails
+		fields = {'age', 'gender', 'address','dob', 'contact', 'post_code'}

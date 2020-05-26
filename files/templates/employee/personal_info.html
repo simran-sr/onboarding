@@ -1,0 +1,16 @@
+{% extends "employee/base.html" %}
+
+{% block title %}Personal Information {% endblock %}
+
+{% block heading %}
+	<h2>Personal Information</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Save">
+    </form>
+	
+	<a href="{% url 'employee:logout' %}">Logout</a>
+{% endblock %}

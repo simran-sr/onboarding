@@ -20,27 +20,27 @@ urlpatterns = [
          ViewHome.as_view(), 
          name='home'
     ),
-    path('roles-and-responsiblity',
+    path('roles-and-responsiblity/<uuid:id>',
     	ViewRolesResponsibility.as_view(),
     	name='roles-and-responsiblity'
     ),
-    path('personal-info',
+    path('personal-info/<uuid:id>',
     	ViewPersonalInfo.as_view(),
     	name='personal-info'
     ),
-    path('family-info',
+    path('family-info/<uuid:id>',
     	ViewFamilyInfo.as_view(),
     	name='family-info'
     ),
-    path('document-info',
+    path('document-info/<uuid:id>',
     	ViewDocumentInfo.as_view(),
     	name='document-info'
     ),
-    path('drug-declaration',
+    path('drug-declaration/<uuid:id>',
     	ViewDrugDeclaration.as_view(),
     	name='drug-declaration'
     ),
-    path('banking-info',
+    path('banking-info/<uuid:id>',
     	ViewBankingInfo.as_view(),
     	name='banking-info'
     ),

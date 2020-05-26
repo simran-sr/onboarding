@@ -10,3 +10,8 @@ class ViewRolesResponsibility(LoginRequiredMixin, TemplateView):
     View to display the home page
     """
     template_name = 'employee/roles.html'
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+        
+    #     return context
+    

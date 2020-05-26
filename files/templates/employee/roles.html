@@ -1,9 +1,12 @@
 {% extends "employee/base.html" %}
 
-{% block title %}Welcome{% endblock %}
+{% block title %}Roles & Responsibility{% endblock %}
+
+{% block heading %}
+	<h2>Roles and responsibility</h2>
+{% endblock %}
 
 {% block content %}
-	<h2>Roles and responsibility</h2>
-
+	<a href="{% url 'employee:personal-info' id=id %}">Next</a><br>
 	<a href="{% url 'employee:logout' %}">Logout</a>
 {% endblock %}
