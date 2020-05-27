@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.views import LoginView
 from django.http import HttpResponse
 from onboarding.apps.employee.models.employee import ModelEmployee
+from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 from django.contrib.auth import authenticate, login
 
 # Create your views here.
@@ -15,8 +16,18 @@ class ViewAutoLoginOnboard(LoginView):
 		user = authenticate(request, username=username, password=password)
 		if user is not None:
 			login(request, user)
+			self.add_step_info()
 			ModelEmployee.objects.filter(uuid=id).update(slug="welcome")
+<<<<<<< HEAD
 
+=======
+>>>>>>> fd509b4d850909d22abe3dd1125a52e7cf1c98d6
 			return render(request, "employee/welcome.html", {"emp_id":employee.uuid})
 		else:
 			return HttpResponse("wrong credentials..")
+			
+
+	def add_step_info(self):
+		user_step_info = ModelRedirectUrl.objects.filter(user=self.request.user.id)
+		if not user_step_info:
+			ModelRedirectUrl.objects.create(user=self.request.user.id)

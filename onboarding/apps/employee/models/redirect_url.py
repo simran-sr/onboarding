@@ -7,6 +7,7 @@ from onboarding.apps.employee.models.employee import ModelEmployee
 # ModelRedirectUrl
 # -------------------------------------------------------------------------------
 class ModelRedirectUrl(models.Model):
+    roles_responsibility = models.BooleanField(default = False)
     personal_info = models.BooleanField(default = False)
     family_info = models.BooleanField(default = False)
     emergency_contact = models.BooleanField(default = False)

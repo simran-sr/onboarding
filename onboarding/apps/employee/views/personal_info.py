@@ -2,6 +2,7 @@ from django.views.generic.edit import FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from onboarding.apps.employee.forms.personal_details import FormPersonalDetails
 from onboarding.apps.employee.models.employee import ModelEmployee
+from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 
 #-------------------------------------------------------------------------------
 # ViewPersonalInfo
@@ -26,4 +27,5 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
         """ Logic to update redirect table will be written 
             Success url will also be changed here.
         """
-        print("@@@@@")
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(personal_info=True)
+
