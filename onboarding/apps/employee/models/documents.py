@@ -1,5 +1,5 @@
 from django.db import models
-
+from onboarding.apps.employee.models.employee import ModelEmployee
 
 # -------------------------------------------------------------------------------
 # ModelDocumentGathering

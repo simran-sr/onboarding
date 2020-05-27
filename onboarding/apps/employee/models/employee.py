@@ -8,7 +8,7 @@ from django.contrib.auth.models import User
 # -------------------------------------------------------------------------------
 class ModelEmployee(models.Model):
 	uuid = models.UUIDField(
-		unique=True,
+		primary_key=True,
 		default=uuid4,
 		editable=False,
 		help_text="Unique identification for an account."
@@ -35,4 +35,4 @@ class ModelEmployee(models.Model):
 	# __str__
 	# ---------------------------------------------------------------------------
 	def __str__(self):
-		return self.slug
+		return str(self.uuid)

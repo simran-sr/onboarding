@@ -9,7 +9,6 @@ from django.contrib.auth import authenticate, login
 class ViewAutoLoginOnboard(LoginView):
 	
 	def get(self, request, id):
-		print("idddd--", id)
 		employee = ModelEmployee.objects.get(uuid=id)
 		username = employee.user.username
 		password = 'admin@123'
@@ -17,7 +16,7 @@ class ViewAutoLoginOnboard(LoginView):
 		if user is not None:
 			login(request, user)
 			ModelEmployee.objects.filter(uuid=id).update(slug="welcome")
-			print("session -- ", request.session)
+
 			return render(request, "employee/welcome.html", {"emp_id":employee.uuid})
 		else:
 			return HttpResponse("wrong credentials..")

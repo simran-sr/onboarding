@@ -1,5 +1,6 @@
 from django.db import models
 from uuid import uuid4
+from onboarding.apps.employee.models.employee import ModelEmployee
 
 
 # -------------------------------------------------------------------------------
@@ -12,6 +13,10 @@ class ModelRedirectUrl(models.Model):
     document_gathering = models.BooleanField(default = False)
     drug_declaration = models.BooleanField(default = False)
     bank_detail = models.BooleanField(default = False)
+    employee = models.OneToOneField(
+        'ModelEmployee',
+        on_delete=models.CASCADE
+    )
     user = models.IntegerField()
 
     # ---------------------------------------------------------------------------
