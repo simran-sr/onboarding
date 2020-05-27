@@ -1,0 +1,31 @@
+{% extends "employee/base.html" %}
+
+{% block title %}Family Information {% endblock %}
+
+{% block heading %}
+	<h2>Family Information</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Father's Name</label>
+                {{ form.father_name }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Mother's Name</label>
+                {{ form.mother_name }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Sibling Name</label>
+                {{ form.siblings }}
+            </div>
+            
+        </div>
+        <input type="submit" value="Save">
+    </form>
+	
+	<a href="{% url 'employee:logout' %}">Logout</a>
+{% endblock %}

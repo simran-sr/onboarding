@@ -1,4 +1,5 @@
 from django.views.generic.edit import FormView
+from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from onboarding.apps.employee.forms.personal_details import FormPersonalDetails
 from onboarding.apps.employee.models.employee import ModelEmployee
@@ -13,7 +14,6 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
     """
     form_class = FormPersonalDetails
     template_name = 'employee/personal_info.html'
-    success_url = '/'
 
     def form_valid(self, form):
         instance = ModelEmployee.objects.get(uuid=self.kwargs['id'])
@@ -28,4 +28,7 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
             Success url will also be changed here.
         """
         ModelRedirectUrl.objects.filter(user=self.request.user.id).update(personal_info=True)
+    
+    def get_success_url(self):         
+        return reverse('employee:family-info', kwargs = {'id': self.kwargs['id']})
 

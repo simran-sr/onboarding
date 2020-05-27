@@ -6,9 +6,8 @@ GENDER_CHOICES = (
     (2, 'not specified'),
 )
 
-
 # -------------------------------------------------------------------------------
-# ModelDocumentGathering
+# ModelPersonalDetails
 # -------------------------------------------------------------------------------
 class ModelPersonalDetails(models.Model):
 	employee = models.OneToOneField(

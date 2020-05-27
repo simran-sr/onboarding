@@ -11,7 +11,7 @@ class FormFamilyDetails(forms.ModelForm):
         label='Father Name',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Father Name',
             })
     )
@@ -21,7 +21,7 @@ class FormFamilyDetails(forms.ModelForm):
         label='Mother Name',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Mother Name',
             })
     )
@@ -30,7 +30,7 @@ class FormFamilyDetails(forms.ModelForm):
         label='Siblings',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Siblings',
             })
     )
@@ -39,6 +39,5 @@ class FormFamilyDetails(forms.ModelForm):
 	# Meta
 	# ---------------------------------------------------------------------------
 	class Meta:
-		class Meta:
-			model = ModelFamilyDetails
-			fields = {'father_name', 'mother_name', 'siblings')
+		model = ModelFamilyDetails
+		fields = {'father_name', 'mother_name', 'siblings'}

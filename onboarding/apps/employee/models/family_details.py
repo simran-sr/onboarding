@@ -15,8 +15,9 @@ class ModelFamilyDetails(models.Model):
 	mother_name = models.CharField(
         max_length=255
     )
-	siblings = models.IntegerField()
-
+	siblings = models.CharField(
+        max_length=255
+    )
 	# ---------------------------------------------------------------------------
 	# Meta
 	# ---------------------------------------------------------------------------
