@@ -1,19 +1,19 @@
 from django.views.generic.edit import FormView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
-from onboarding.apps.employee.forms.family_details import FormFamilyDetails
-from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
+from onboarding.apps.employee.forms.emergency_contact import FormEmergencyContact
 from onboarding.apps.employee.models.employee import ModelEmployee
+from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 
 #-------------------------------------------------------------------------------
-# ViewHome
+# ViewPersonalInfo
 #-------------------------------------------------------------------------------
-class ViewFamilyInfo(LoginRequiredMixin, FormView):
+class ViewEmergencyContact(LoginRequiredMixin, FormView):
     """
-    View to display the Family info form
+    View to display the Personal info form
     """
-    form_class = FormFamilyDetails
-    template_name = 'employee/family_info.html'
+    form_class = FormEmergencyContact
+    template_name = 'employee/emergency_contact.html'
 
     def form_valid(self, form):
         instance = ModelEmployee.objects.get(uuid=self.kwargs['id'])
@@ -27,7 +27,8 @@ class ViewFamilyInfo(LoginRequiredMixin, FormView):
         """ Logic to update redirect table will be written 
             Success url will also be changed here.
         """
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(family_info=True)
-
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(emergency_contact=True)
+    
     def get_success_url(self):         
-        return reverse('employee:emergency-contact', kwargs = {'id': self.kwargs['id']})
+        return reverse('employee:family-info', kwargs = {'id': self.kwargs['id']})
+

@@ -6,22 +6,40 @@ from onboarding.apps.employee.models.emergency_contact import ModelEmergencyCont
 # FormEmergencyContact
 # -------------------------------------------------------------------------------
 class FormEmergencyContact(forms.ModelForm):
-    father_contact = forms.CharField(
+    contact_1 = forms.CharField(
         max_length=100, required=True,
-        label='Father Contact',
+        label='First Contact',
         widget=forms.TextInput(
             attrs={
-                'class': '',
-                'placeholder': 'Father Contact'
+                'class': 'form-control',
+                'placeholder': 'First Contact'
             })
     )
-    frient_contact = forms.CharField(
+    contact_1_relation = forms.CharField(
         max_length=100, required=True,
-        label='Friend Contact',
+        label='Relation',
         widget=forms.TextInput(
             attrs={
-                'class': '',
-                'placeholder': 'Friend Contact'
+                'class': 'form-control',
+                'placeholder': 'Relation with person'
+            })
+    )
+    contact_2 = forms.CharField(
+        max_length=100, required=True,
+        label='Second Contact',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Second Contact'
+            })
+    )
+    contact_2_relation = forms.CharField(
+        max_length=100, required=True,
+        label='Relation',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'form-control',
+                'placeholder': 'Relation with person'
             })
     )
     email = forms.EmailField(
@@ -29,7 +47,7 @@ class FormEmergencyContact(forms.ModelForm):
         label='Email',
         widget=forms.EmailInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'pattern': '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$',
                 'placeholder': 'somebody@example.com',
             })
@@ -40,4 +58,4 @@ class FormEmergencyContact(forms.ModelForm):
     # ---------------------------------------------------------------------------
     class Meta:
         model = ModelEmergencyContact
-        fields = {'father_contact', 'frient_contact', 'email')
+        fields = {'contact_1','contact_1_relation','contact_2', 'contact_2_relation', 'email'}

@@ -1,0 +1,39 @@
+{% extends "employee/base.html" %}
+
+{% block title %}Emergency Contact {% endblock %}
+
+{% block heading %}
+	<h2>Emergency Contact</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>First Contact</label>
+                {{ form.contact_1 }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Relation with Person</label>
+                {{ form.contact_1_relation }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Second Contact</label>
+                {{ form.contact_2 }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Relation with Person</label>
+                {{ form.contact_2_relation }}
+            </div>
+            <div class="col-md-6">
+                <label>Email</label>
+                {{ form.email}}
+            </div>
+            
+        </div>
+        <input type="submit" value="Save">
+    </form>
+	
+	<a href="{% url 'employee:logout' %}">Logout</a>
+{% endblock %}

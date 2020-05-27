@@ -9,10 +9,16 @@ class ModelEmergencyContact(models.Model):
         'ModelEmployee',
         on_delete=models.CASCADE
     )
-    father_contact = models.IntegerField()
-    frient_contact = models.IntegerField()
+    contact_1 = models.IntegerField()
+    contact_1_relation = models.CharField(
+        max_length=255
+    )
+    contact_2 = models.IntegerField()
+    contact_2_relation = models.CharField(
+        max_length=255
+    )
     email = models.EmailField(
-        max_length=50
+        max_length=250
     )
 
     # ---------------------------------------------------------------------------

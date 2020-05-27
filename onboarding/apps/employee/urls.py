@@ -5,6 +5,7 @@ from onboarding.apps.employee.views.logout import ViewLogout
 from onboarding.apps.employee.views.roles_responsibility import ViewRolesResponsibility
 from onboarding.apps.employee.views.personal_info import ViewPersonalInfo
 from onboarding.apps.employee.views.family_info import ViewFamilyInfo
+from onboarding.apps.employee.views.emergency_contact import ViewEmergencyContact
 from onboarding.apps.employee.views.document_info import ViewDocumentInfo
 from onboarding.apps.employee.views.drug_declaration import ViewDrugDeclaration
 from onboarding.apps.employee.views.banking_info import ViewBankingInfo
@@ -31,6 +32,10 @@ urlpatterns = [
     path('family-info/<uuid:id>',
     	ViewFamilyInfo.as_view(),
     	name='family-info'
+    ),
+    path('emergency-contact/<uuid:id>',
+    	ViewEmergencyContact.as_view(),
+    	name='emergency-contact'
     ),
     path('document-info/<uuid:id>',
     	ViewDocumentInfo.as_view(),
