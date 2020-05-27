@@ -1,4 +1,5 @@
 from django import forms
+import datetime
 from onboarding.apps.employee.models.personal_details import ModelPersonalDetails
 
 GENDER_CHOICES = (
@@ -6,44 +7,41 @@ GENDER_CHOICES = (
     (1, 'female'),
     (2, 'not specified'),
 )
+cur_year = datetime.datetime.today().year
+year_range = tuple([i for i in range(cur_year - 40, cur_year)])
 
 
 # -------------------------------------------------------------------------------
 # FormPersonalDetails
 # -------------------------------------------------------------------------------
 class FormPersonalDetails(forms.ModelForm):
-	age = forms.CharField(
-        max_length=100, required=True,
-        label='Age',
-        widget=forms.TextInput(
-            attrs={
-                'class': '',
-                'placeholder': 'Age'
-            })
-    )
-
+	
 	gender = forms.ChoiceField(
-		choices = GENDER_CHOICES
+		choices = GENDER_CHOICES,
+        widget = forms.Select(attrs = {
+            'class':'form-control'
+        })
 	)
 
 	address = forms.CharField(
-        max_length=100, required=True,
+        required=True,
         label='Address',
-        widget=forms.TextInput(
+        widget=forms.Textarea(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Address'
             })
     )
 
-	dob = forms.DateField()
+	dob = forms.DateField(widget=forms.SelectDateWidget(years=year_range,
+        attrs={'class':''}))
 
 	contact = forms.CharField(
         max_length=100, required=True,
         label='Contact',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Contact'
             })
     )
@@ -52,7 +50,7 @@ class FormPersonalDetails(forms.ModelForm):
         label='Post Code',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Post Code'
             })
     )
@@ -64,4 +62,4 @@ class FormPersonalDetails(forms.ModelForm):
 	class Meta:
 
 		model = ModelPersonalDetails
-		fields = {'age', 'gender', 'address','dob', 'contact', 'post_code'}
+		fields = { 'gender', 'address','dob', 'contact', 'post_code'}

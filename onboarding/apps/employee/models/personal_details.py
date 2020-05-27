@@ -15,7 +15,6 @@ class ModelPersonalDetails(models.Model):
 		'ModelEmployee',
 		on_delete=models.CASCADE
 	)
-	age = models.IntegerField()
 	gender = models.IntegerField(
 		choices=GENDER_CHOICES
 	)

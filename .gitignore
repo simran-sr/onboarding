@@ -4,8 +4,8 @@ venv
 #[media files]
 media/
 
-#[migration files]
-*.sqlite3
+#[sqlite file]
+*sqlite3
 
 # [vscode config]
 .vscode
