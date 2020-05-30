@@ -6,11 +6,11 @@ from onboarding.apps.employee.models.employee import ModelEmployee
 from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 
 #-------------------------------------------------------------------------------
-# ViewPersonalInfo
+# ViewEmergencyContact
 #-------------------------------------------------------------------------------
 class ViewEmergencyContact(LoginRequiredMixin, FormView):
     """
-    View to display the Personal info form
+    View to display the Emergency Contact info form
     """
     form_class = FormEmergencyContact
     template_name = 'employee/emergency_contact.html'
@@ -30,5 +30,5 @@ class ViewEmergencyContact(LoginRequiredMixin, FormView):
         ModelRedirectUrl.objects.filter(user=self.request.user.id).update(emergency_contact=True)
     
     def get_success_url(self):         
-        return reverse('employee:family-info', kwargs = {'id': self.kwargs['id']})
+        return reverse('employee:drug-declaration', kwargs = {'id': self.kwargs['id']})
 

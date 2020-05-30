@@ -1,0 +1,12 @@
+{% extends "employee/base.html" %}
+
+{% block title %}Drug & Declaration{% endblock %}
+
+{% block heading %}
+	<h2>Drug Declaration</h2>
+{% endblock %}
+
+{% block content %}
+	<a href="{% url 'employee:bank-details' id=id %}">Next</a><br>
+	<a href="{% url 'employee:logout' %}">Logout</a>
+{% endblock %}

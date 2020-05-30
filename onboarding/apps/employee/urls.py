@@ -45,7 +45,7 @@ urlpatterns = [
     	ViewDrugDeclaration.as_view(),
     	name='drug-declaration'
     ),
-    path('banking-info/<uuid:id>',
+    path('bank-details/<uuid:id>',
     	ViewBankingInfo.as_view(),
     	name='banking-info'
     ),

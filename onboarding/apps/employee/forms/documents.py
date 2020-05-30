@@ -13,7 +13,8 @@ class FormDocumentGathering(forms.ModelForm):
             attrs={
                 'multiple': True,
                 'type': 'file',
-                'id': 'fileupload'
+                'id': 'fileupload',
+                'class' : 'form-control'
             })
     )
     # ---------------------------------------------------------------------------

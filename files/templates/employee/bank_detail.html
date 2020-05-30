@@ -1,0 +1,47 @@
+{% extends "employee/base.html" %}
+
+{% block title %}Emergency Contact {% endblock %}
+
+{% block heading %}
+	<h2>Emergency Contact</h2>
+{% endblock %}
+
+{% block content %}
+    <form method="post">{% csrf_token %}
+        
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label>Bank Name</label>
+                {{ form.bank_name }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>IFSC Code</label>
+                {{ form.ifsc }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Account Number</label>
+                {{ form.account_number }}
+            </div>
+            <div class="col-md-6 form-group">
+                <label>Branch Name</label>
+                {{ form.branch_name }}
+            </div>
+            <div class="col-md-6">
+                <label>Bank address</label>
+                {{ form.bank_address}}
+            </div>
+            <div class="col-md-6">
+                <label>state</label>
+                {{ form.state}}
+            </div>
+            <div class="col-md-6">
+                <label>Bank Postal Code</label>
+                {{ form.bank_post_code}}
+            </div>
+            
+        </div>
+        <input type="submit" value="Save">
+    </form>
+	
+	<a href="{% url 'employee:logout' %}">Logout</a>
+{% endblock %}

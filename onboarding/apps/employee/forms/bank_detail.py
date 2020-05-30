@@ -1,5 +1,5 @@
 from django import forms
-from onboarding.apps.employee.models.bank_detail import ModelBankingInfomation
+from onboarding.apps.employee.models.bank_detail import ModelBankingDetail
 
 # ---------------------------------------------------------------------------
 # FormBankingDetail
@@ -80,5 +80,5 @@ class FormBankingDetail(forms.ModelForm):
     # Meta
     # ---------------------------------------------------------------------------
     class Meta:
-        model = ModelBankingInfomation
+        model = ModelBankingDetail
         fields = {'bank_name', 'ifsc', 'acoount_number', 'branch_name', 'bank_address', 'state', 'bank_post_code'}
