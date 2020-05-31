@@ -31,4 +31,4 @@ class ModelDocumentGathering(models.Model):
         """
         Returns the string representation of the feedback entry.
         """
-        return self.file
+        return self.file.url

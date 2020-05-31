@@ -20,11 +20,13 @@ class ViewDocumentInfo(LoginRequiredMixin, FormView):
     # form_valid
     # ---------------------------------------------------------------------------
     def form_valid(self, form, **kwargs):
+        id = self.kwargs['id']
         for file in self.request.FILES.getlist("files"):
-            instance = ModelEmployee.objects.get(uuid=self.kwargs['id'])
+            instance = ModelEmployee.objects.get(uuid=id)
             n = ModelDocumentGathering.objects.create(file=file, employee=instance)
             n.save()
         self.update_redirect_table()
+        ModelEmployee.objects.filter(uuid=id).update(slug="document")
         return FormView.form_valid(self, form)
 
     def update_redirect_table(self):
