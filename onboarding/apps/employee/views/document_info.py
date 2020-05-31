@@ -34,4 +34,4 @@ class ViewDocumentInfo(LoginRequiredMixin, FormView):
         ModelRedirectUrl.objects.filter(user=self.request.user.id).update(document_gathering=True)
 
     def get_success_url(self):
-        return reverse('employee:personal-info', kwargs = {'id': self.kwargs['id']})
+        return reverse('employee:drug-declaration', kwargs = {'id': self.kwargs['id']})

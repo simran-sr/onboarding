@@ -10,7 +10,7 @@ from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 #-------------------------------------------------------------------------------
 class ViewBankingInfo(LoginRequiredMixin, FormView):
     """
-    View to display the Emergency Contact info form
+    View to display the Bank Deatils form
     """
     form_class = FormBankingDetail
     template_name = 'employee/bank_detail.html'
@@ -31,4 +31,4 @@ class ViewBankingInfo(LoginRequiredMixin, FormView):
         ModelRedirectUrl.objects.filter(user=self.request.user.id).update(bank_detail=True)
     
     def get_success_url(self):         
-        return reverse('employee:drug-declaration', kwargs = {'id': self.kwargs['id']})
+        return reverse('employee:employee-handbook', kwargs = {'id': self.kwargs['id']})

@@ -10,7 +10,7 @@ class FormBankingDetail(forms.ModelForm):
         label='Bank Name',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Bank Name'
             })
     )
@@ -20,7 +20,7 @@ class FormBankingDetail(forms.ModelForm):
         label='IFSC Code',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'IFSC Code'
             })
     )
@@ -30,7 +30,7 @@ class FormBankingDetail(forms.ModelForm):
         label='Account Number',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Account Number'
             })
     )
@@ -40,7 +40,7 @@ class FormBankingDetail(forms.ModelForm):
         label='Branch Name',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Branch Name'
             })
     )
@@ -50,7 +50,7 @@ class FormBankingDetail(forms.ModelForm):
         label='Bank Address',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Bank Address'
             })
     )
@@ -61,7 +61,7 @@ class FormBankingDetail(forms.ModelForm):
         label='State',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'State'
             })
     )
@@ -71,7 +71,7 @@ class FormBankingDetail(forms.ModelForm):
         label='Bank Post Code',
         widget=forms.TextInput(
             attrs={
-                'class': '',
+                'class': 'form-control',
                 'placeholder': 'Bank Post Code'
             })
     )

@@ -1,9 +1,9 @@
 from django.db import models
 
 GENDER_CHOICES = (
-    (0, 'male'),
-    (1, 'female'),
-    (2, 'not specified'),
+    ('male', 'Male'),
+    ('female', 'Female'),
+    ('not specified', 'Not Specified'),
 )
 
 # -------------------------------------------------------------------------------
@@ -14,8 +14,9 @@ class ModelPersonalDetails(models.Model):
 		'ModelEmployee',
 		on_delete=models.CASCADE
 	)
-	gender = models.IntegerField(
-		choices=GENDER_CHOICES
+	gender = models.CharField(
+		choices=GENDER_CHOICES,
+		max_length=20
 	)
 	address = models.CharField(
 		max_length=100

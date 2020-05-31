@@ -9,6 +9,7 @@ from onboarding.apps.employee.views.emergency_contact import ViewEmergencyContac
 from onboarding.apps.employee.views.document_info import ViewDocumentInfo
 from onboarding.apps.employee.views.drug_declaration import ViewDrugDeclaration
 from onboarding.apps.employee.views.banking_info import ViewBankingInfo
+from onboarding.apps.employee.views.employee_handbook import ViewEmpHandbook
 
 urlpatterns = [
     path('',
@@ -46,6 +47,10 @@ urlpatterns = [
     path('bank-details/<uuid:id>',
     	ViewBankingInfo.as_view(),
     	name='bank-details'
+    ),
+    path('employee-handbook/<uuid:id>',
+        ViewEmpHandbook.as_view(),
+        name='employee-handbook'
     ),
     path('logout',
     	ViewLogout.as_view(),
