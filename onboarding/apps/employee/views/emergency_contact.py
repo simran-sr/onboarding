@@ -29,6 +29,6 @@ class ViewEmergencyContact(LoginRequiredMixin, FormView):
         """
         ModelRedirectUrl.objects.filter(user=self.request.user.id).update(emergency_contact=True)
     
-    def get_success_url(self):         
-        return reverse('employee:drug-declaration', kwargs = {'id': self.kwargs['id']})
+    def get_success_url(self):
+        return reverse('employee:document-info', kwargs = {'id': self.kwargs['id']})
 

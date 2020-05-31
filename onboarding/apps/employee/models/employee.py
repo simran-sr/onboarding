@@ -35,4 +35,4 @@ class ModelEmployee(models.Model):
 	# __str__
 	# ---------------------------------------------------------------------------
 	def __str__(self):
-		return self.slug
+		return str(self.uuid)

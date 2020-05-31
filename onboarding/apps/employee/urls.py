@@ -11,15 +11,13 @@ from onboarding.apps.employee.views.drug_declaration import ViewDrugDeclaration
 from onboarding.apps.employee.views.banking_info import ViewBankingInfo
 
 urlpatterns = [
-    
+    path('',
+         ViewHome.as_view(),
+         name='home'
+         ),
     path('onboard-login/<uuid:id>', 
          ViewAutoLoginOnboard.as_view(), 
          name='login'
-    ),
-
-    path('', 
-         ViewHome.as_view(), 
-         name='home'
     ),
     path('roles-and-responsiblity/<uuid:id>',
     	ViewRolesResponsibility.as_view(),
@@ -47,7 +45,7 @@ urlpatterns = [
     ),
     path('bank-details/<uuid:id>',
     	ViewBankingInfo.as_view(),
-    	name='banking-info'
+    	name='bank-details'
     ),
     path('logout',
     	ViewLogout.as_view(),

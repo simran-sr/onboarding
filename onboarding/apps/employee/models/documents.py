@@ -1,5 +1,5 @@
 from django.db import models
-
+from onboarding.apps.employee.models.employee import ModelEmployee
 
 # -------------------------------------------------------------------------------
 # ModelDocumentGathering
@@ -11,7 +11,7 @@ class ModelDocumentGathering(models.Model):
     )
 
     employee = models.ForeignKey(
-        'ModelEmployee',
+        ModelEmployee,
         on_delete=models.CASCADE
     )
 
@@ -31,5 +31,4 @@ class ModelDocumentGathering(models.Model):
         """
         Returns the string representation of the feedback entry.
         """
-        return self.files.url
-
+        return self.file

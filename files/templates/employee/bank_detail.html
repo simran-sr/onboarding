@@ -7,7 +7,8 @@
 {% endblock %}
 
 {% block content %}
-    <form method="post">{% csrf_token %}
+    <form method="post">
+        {% csrf_token %}
         
         <div class="row">
             <div class="col-md-6 form-group">
@@ -20,7 +21,7 @@
             </div>
             <div class="col-md-6 form-group">
                 <label>Account Number</label>
-                {{ form.account_number }}
+                {{ form.acoount_number }}
             </div>
             <div class="col-md-6 form-group">
                 <label>Branch Name</label>

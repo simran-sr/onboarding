@@ -136,6 +136,7 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 BASE_URL = 'http://localhost:8000'
 
+
 MEDIAFILES_LOCATION = 'media'
 STATICFILES_LOCATION = 'static'
 

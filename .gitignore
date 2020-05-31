@@ -2,7 +2,7 @@
 venv
 
 #[media files]
-media/
+files/media/
 
 #[sqlite file]
 *sqlite3
