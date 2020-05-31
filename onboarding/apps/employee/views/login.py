@@ -25,7 +25,5 @@ class ViewAutoLoginOnboard(LoginView):
 
 	def add_step_info(self):
 		user_step_info = ModelRedirectUrl.objects.filter(user=self.request.user.id)
-		print('...................')
 		if not user_step_info:
-			print('...................lllllll')
 			ModelRedirectUrl.objects.create(user=self.request.user.id)

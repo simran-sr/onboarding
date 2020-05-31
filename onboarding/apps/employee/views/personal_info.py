@@ -16,11 +16,13 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
     template_name = 'employee/personal_info.html'
 
     def form_valid(self, form):
-        instance = ModelEmployee.objects.get(uuid=self.kwargs['id'])
+        id = self.kwargs['id']
+        instance = ModelEmployee.objects.get(uuid=id)
         data = form.save(commit=False)
         data.employee = instance
         data.save()
         self.update_redirect_table()
+        ModelEmployee.objects.filter(uuid=id).update(slug="personal")
         return FormView.form_valid(self, form)
 
     def update_redirect_table(self):

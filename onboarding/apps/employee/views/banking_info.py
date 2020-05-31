@@ -16,12 +16,13 @@ class ViewBankingInfo(LoginRequiredMixin, FormView):
     template_name = 'employee/bank_detail.html'
 
     def form_valid(self, form):
-        print('............................', form)
-        instance = ModelEmployee.objects.get(uuid=self.kwargs['id'])
+        id = self.kwargs['id']
+        instance = ModelEmployee.objects.get(uuid=id)
         data = form.save(commit=False)
         data.employee = instance
         data.save()
         self.update_redirect_table()
+        ModelEmployee.objects.filter(uuid=id).update(slug="bank")
         return FormView.form_valid(self, form)
 
     def update_redirect_table(self):
