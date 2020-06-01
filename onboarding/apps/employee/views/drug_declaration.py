@@ -17,7 +17,7 @@ class ViewDrugDeclaration(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         id = self.kwargs['id']
         context = super().get_context_data(**kwargs)
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(drug_declaration=True)
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(ViewDrugDeclaration=True)
         ModelEmployee.objects.filter(uuid=id).update(slug="drug")
         return context
 

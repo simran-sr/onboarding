@@ -33,7 +33,7 @@ class ViewDocumentInfo(LoginRequiredMixin, FormView):
         """ Logic to update redirect table will be written
             Success url will also be changed here.
         """
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(document_gathering=True)
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(ViewDocumentInfo=True)
 
     def get_success_url(self):
         return reverse('employee:drug-declaration', kwargs = {'id': self.kwargs['id']})

@@ -15,7 +15,7 @@ class ViewRolesResponsibility(LoginRequiredMixin, TemplateView):
     def get_context_data(self, **kwargs):
         id = kwargs.get('id')
         context = super().get_context_data(**kwargs)
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(roles_responsibility=True)
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(ViewRolesResponsibility=True)
         ModelEmployee.objects.filter(uuid=id).update(slug="role")
         return context
     

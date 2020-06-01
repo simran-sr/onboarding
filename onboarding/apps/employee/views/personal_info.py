@@ -37,7 +37,7 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
         """ Logic to update redirect table will be written 
             Success url will also be changed here.
         """
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(personal_info=True)
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(ViewPersonalInfo=True)
     
     def get_success_url(self):         
         return reverse('employee:family-info', kwargs = {'id': self.kwargs['id']})

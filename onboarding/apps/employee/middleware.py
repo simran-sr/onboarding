@@ -29,29 +29,25 @@ class MyMiddleware(MiddlewareMixin):
 	def __call__(self, request):
 		
 		response = self.get_response(request)
-		# self.process_request(request)
-		# self.process_response(request, response)
 		return response
 
 	# def process_request(self, request):
 	# 	print("process request --- ", request)
 
 	def process_view(self, request, view_func, *view_args, **view_kwargs):
-		print("++++++++++++")
 		user = request.user.id
 		current_view = view_func.__name__
 		redirect_info = ModelRedirectUrl.objects.filter(user=user)
-		redirect_info = redirect_info[0]
+		if redirect_info:
+			redirect_info = redirect_info[0]
 
-		url = request.path.split('/')[1]
-		uuid = request.path.split('/')[2]\
+			url = request.path.split('/')[1]
+			uuid = request.path.split('/')[2]\
 
-		
-		for page in array_seq: 
-			redirect_to = getattr(redirect_info, page)
-			if not redirect_to:
-				urllll = 'employee:'+redirect_obj[page]
-				if (url != redirect_obj[page]):
-					return redirect(reverse(urllll, kwargs={'id': uuid}))
-			else:
-				print("###")
+			
+			for page in array_seq: 
+				redirect_to = getattr(redirect_info, page)
+				if not redirect_to:
+					urllll = 'employee:'+redirect_obj[page]
+					if (url != redirect_obj[page]):
+						return redirect(reverse(urllll, kwargs={'id': uuid}))

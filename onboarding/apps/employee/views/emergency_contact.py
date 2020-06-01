@@ -29,7 +29,7 @@ class ViewEmergencyContact(LoginRequiredMixin, FormView):
         """ Logic to update redirect table will be written 
             Success url will also be changed here.
         """
-        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(emergency_contact=True)
+        ModelRedirectUrl.objects.filter(user=self.request.user.id).update(ViewEmergencyContact=True)
     
     def get_success_url(self):
         return reverse('employee:document-info', kwargs = {'id': self.kwargs['id']})
