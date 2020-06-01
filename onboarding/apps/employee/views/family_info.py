@@ -2,6 +2,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from onboarding.apps.employee.forms.family_details import FormFamilyDetails
+from onboarding.apps.employee.models.family_details import ModelFamilyDetails
 from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 from onboarding.apps.employee.models.employee import ModelEmployee
 
@@ -12,8 +13,21 @@ class ViewFamilyInfo(LoginRequiredMixin, FormView):
     """
     View to display the Family info form
     """
+    model = ModelFamilyDetails
     form_class = FormFamilyDetails
     template_name = 'employee/family_info.html'
+
+    def get_form(self, form_class=None):
+        """
+        Check if the user already saved emergency contact details. If so, then show
+        the form populated with those details, to let user change them.
+        """
+        if form_class is None:
+            form_class = FormFamilyDetails
+            id = self.kwargs['id']
+            instance = ModelEmployee.objects.get(uuid=id)
+            family_details = ModelFamilyDetails.objects.get(employee=instance)
+            return form_class(instance=family_details, **self.get_form_kwargs())
 
     def form_valid(self, form):
         id = self.kwargs['id']

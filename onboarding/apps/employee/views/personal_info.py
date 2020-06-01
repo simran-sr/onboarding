@@ -2,6 +2,7 @@ from django.views.generic.edit import FormView
 from django.urls import reverse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from onboarding.apps.employee.forms.personal_details import FormPersonalDetails
+from onboarding.apps.employee.models.personal_details import ModelPersonalDetails
 from onboarding.apps.employee.models.employee import ModelEmployee
 from onboarding.apps.employee.models.redirect_url import ModelRedirectUrl
 
@@ -13,7 +14,21 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
     View to display the Personal info form
     """
     form_class = FormPersonalDetails
+    model = ModelPersonalDetails
     template_name = 'employee/personal_info.html'
+
+    def get_form(self, form_class=None):
+        """
+        Check if the user already saved personal details. If so, then show
+        the form populated with those details, to let user change them.
+        """
+        if form_class is None:
+            form_class = FormPersonalDetails
+            id = self.kwargs['id']
+            instance = ModelEmployee.objects.get(uuid=id)
+            personal_detail = ModelPersonalDetails.objects.get(employee=instance)
+            return form_class(instance=personal_detail, **self.get_form_kwargs())
+        
 
     def form_valid(self, form):
         id = self.kwargs['id']
