@@ -3,10 +3,21 @@
 {% block title %}Welcome{% endblock %}
 
 {% block heading %}
-	<h2>Welcome {{ request.user }}! On-Board</h2>
 {% endblock %}
 
 {% block content %}
-	<a href="{% url 'employee:roles-and-responsiblity' id=emp_id %}">Next</a><br>
-	<a href="{% url 'employee:logout' %}">Logout</a>
+<div class="panel panel-primary">
+	<div class="panel-heading">On-Board Login</div>
+	<div class="panel-body">Welcome {{ request.user }} !</div>
+</div>
+
+<center>
+	<button>
+		<a href="{% url 'employee:logout' %}">Logout</a>
+	</button>
+	<button>
+		<a href="{% url 'employee:roles-and-responsiblity' id=emp_id %}">Next</a>
+	</button>
+
+</center>
 {% endblock %}

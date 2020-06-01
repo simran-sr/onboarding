@@ -62,6 +62,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'onboarding.apps.employee.middleware.onboarding.MiddlewareOnboarding',
+
 ]
 
 ROOT_URLCONF = 'onboarding.urls'

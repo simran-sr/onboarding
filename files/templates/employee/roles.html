@@ -3,10 +3,20 @@
 {% block title %}Roles & Responsibility{% endblock %}
 
 {% block heading %}
-	<h2>Roles and responsibility</h2>
+<h2>Roles and responsibility</h2>
 {% endblock %}
 
 {% block content %}
-	<a href="{% url 'employee:personal-info' id=id %}">Next</a><br>
-	<a href="{% url 'employee:logout' %}">Logout</a>
+<div class="panel panel-primary">
+	<div class="panel-heading">Roles and responsibility</div>
+	<div class="panel-body">Content ..</div>
+</div>
+<center>
+	<button>
+		<a href="{% url 'employee:logout' %}">Logout</a>
+	</button>
+	<button>
+		<a href="{% url 'employee:personal-info' id=id %}">Next</a><br>
+	</button>
+</center>
 {% endblock %}
