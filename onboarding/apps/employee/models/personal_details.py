@@ -51,7 +51,7 @@ class ModelPersonalDetails(models.Model):
 		verbose_name = 'Personal Details'
 		verbose_name_plural = 'Personal Details'
 		managed = True
-		permissions = (
-           ("view_info", "Can view the personal info"),
-           ("create_profile", "Can create a profile"),
-     	)
+		# permissions = (
+  #          ("view_info", "Can view the personal info"),
+  #          ("create_profile", "Can create a profile"),
+  #    	)

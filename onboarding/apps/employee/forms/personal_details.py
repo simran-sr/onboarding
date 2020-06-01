@@ -1,11 +1,10 @@
 from django import forms
 import datetime
 from onboarding.apps.employee.models.personal_details import ModelPersonalDetails
-
 GENDER_CHOICES = (
-    (0, 'male'),
-    (1, 'female'),
-    (2, 'not specified'),
+    ('male', 'Male'),
+    ('female', 'Female'),
+    ('not specified', 'Not Specified'),
 )
 cur_year = datetime.datetime.today().year
 year_range = tuple([i for i in range(cur_year - 40, cur_year)])

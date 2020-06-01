@@ -6,13 +6,14 @@ from uuid import uuid4
 # ModelRedirectUrl
 # -------------------------------------------------------------------------------
 class ModelRedirectUrl(models.Model):
-    roles_responsibility = models.BooleanField(default = False)
-    personal_info = models.BooleanField(default = False)
-    family_info = models.BooleanField(default = False)
-    emergency_contact = models.BooleanField(default = False)
-    document_gathering = models.BooleanField(default = False)
-    drug_declaration = models.BooleanField(default = False)
-    bank_detail = models.BooleanField(default = False)
+    ViewAutoLoginOnboard = models.BooleanField(default = True)
+    ViewRolesResponsibility = models.BooleanField(default = False)
+    ViewPersonalInfo = models.BooleanField(default = False)
+    ViewFamilyInfo = models.BooleanField(default = False)
+    ViewEmergencyContact = models.BooleanField(default = False)
+    ViewDocumentInfo = models.BooleanField(default = False)
+    ViewDrugDeclaration = models.BooleanField(default = False)
+    ViewBankingInfo = models.BooleanField(default = False)
     user = models.IntegerField()
 
     # ---------------------------------------------------------------------------

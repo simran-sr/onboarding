@@ -25,6 +25,14 @@ class ViewPersonalInfo(LoginRequiredMixin, FormView):
         ModelEmployee.objects.filter(uuid=id).update(slug="personal")
         return FormView.form_valid(self, form)
 
+    def form_invalid(self, form):
+        response = super().form_invalid(form)
+        if self.request.is_ajax():
+            print(form.errors)
+            return JsonResponse(form.errors, status=400)
+        else:
+            return response
+
     def update_redirect_table(self):
         """ Logic to update redirect table will be written 
             Success url will also be changed here.
