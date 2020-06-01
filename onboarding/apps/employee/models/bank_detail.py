@@ -37,8 +37,8 @@ class ModelBankingDetail(models.Model):
     # ---------------------------------------------------------------------------
     # __str__
     # ---------------------------------------------------------------------------
-    def __str__(self):
-        return self.slug
+    # def __str__(self):
+    #     return self.slug
 
 
 
