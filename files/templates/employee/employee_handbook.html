@@ -17,4 +17,6 @@
 	<label>Bank Name :</label> <span>{{ bank_details.bank_name }}</span><br>
 	<label>IFSC :</label> <span>{{ bank_details.ifsc }}</span><br>
 	<label>Account Number :</label> <span>{{ bank_details.acoount_number }}</span><br>
+
+	<a href="{% url 'employee:logout' %}">Logout</a>
 {% endblock %}

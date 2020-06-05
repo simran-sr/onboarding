@@ -10,6 +10,7 @@ from onboarding.apps.employee.views.document_info import ViewDocumentInfo
 from onboarding.apps.employee.views.drug_declaration import ViewDrugDeclaration
 from onboarding.apps.employee.views.banking_info import ViewBankingInfo
 from onboarding.apps.employee.views.employee_handbook import ViewEmpHandbook
+from onboarding.apps.employee.views.custome_views import NoteList
 
 urlpatterns = [
     path('',
@@ -56,6 +57,7 @@ urlpatterns = [
     	ViewLogout.as_view(),
     	name='logout'
     ),
+    path('listnotes', NoteList.as_view(), name='note_list'),
 
 
 ]

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes</title>
+</head>
+<body>
+
+<h1>Notes List</h1><hr>
+{% if object_list %}
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th> id</th>
+        <th>user</th>
+        <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for note in object_list %}
+    <tr>
+        <td>{{ note.slug }}</td>
+        <td>{{ note.uuid }} </td>
+        <td>{{ note.user.username }}</td>
+        <td>{{ note.user.email }}</td>
+    </tr>
+
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+
+<p style="color:red;"> No Data.</p>
+{% endif %}
+</body>
+</html>
+
